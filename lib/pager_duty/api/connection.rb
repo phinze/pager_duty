@@ -31,4 +31,8 @@ class PagerDuty::API::Connection
   def schedules
     PagerDuty::API::Schedules.new(self)
   end
+
+  def users
+    PagerDuty::API::Users.new(self)
+  end
 end

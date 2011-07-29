@@ -17,7 +17,7 @@ def pagerduty
 end
 
 def example_schedule_id
-  pagerduty.schedules.list.values.first
+  pagerduty.schedules.list["Dev Primary"]
 end
 
 def stub_restclient_response(http_code)

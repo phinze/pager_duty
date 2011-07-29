@@ -22,7 +22,7 @@ module Util::ApiObject
 
     def delegate_subhash(key, klass)
       define_method(key) do
-        klass.from_hash(_hash_data[key])
+        klass.from_hash(_hash_data[key.to_s])
       end
     end
   end
