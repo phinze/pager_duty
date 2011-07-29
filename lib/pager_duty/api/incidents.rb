@@ -4,11 +4,12 @@ class PagerDuty::API::Incidents
   end
 
   def find(criteria)
-    response = resource.get(:params => criteria)
-    PagerDuty::API::Response.new(response)
+    response = PagerDuty::API::Response.new(resource.get(:params => criteria))
+    @connection.cookies = response.cookies unless @connection.has_session?
+    response
   end
 
   def resource
-    @resource ||= @connection.resource["/incidents"]
+    @resource ||= @connection.resource["/api/v1/incidents"]
   end
 end

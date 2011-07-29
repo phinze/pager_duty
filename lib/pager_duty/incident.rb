@@ -1,3 +1,4 @@
+require 'pager_duty/util/api_object'
 require 'pager_duty/service'
 require 'pager_duty/user'
 

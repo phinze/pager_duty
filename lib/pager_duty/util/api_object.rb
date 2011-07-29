@@ -1,3 +1,5 @@
+require 'pager_duty/util'
+
 module Util::ApiObject
   def self.included(base)
     base.extend ClassMethods

@@ -3,15 +3,21 @@ require 'pager_duty'
 Bundler.require(:test)
 
 require 'yaml'
-
 PAGERDUTY_CREDENTIALS = YAML.load_file("spec/pagerduty_credentials.yml")
 
-def pagerduty_connection
+# require 'logger'
+# RestClient.log = Logger.new(STDOUT)
+
+def pagerduty
   PagerDuty::API.connect(
-    :subdomain => 'braintree',
-    :user => PAGERDUTY_CREDENTIALS[:username],
+    :subdomain => PAGERDUTY_CREDENTIALS[:subdomain],
+    :user => PAGERDUTY_CREDENTIALS[:user],
     :password => PAGERDUTY_CREDENTIALS[:password]
   )
+end
+
+def example_schedule_id
+  pagerduty.schedules.list.values.first
 end
 
 def stub_restclient_response(http_code)

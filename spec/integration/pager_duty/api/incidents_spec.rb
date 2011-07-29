@@ -3,7 +3,6 @@ require 'spec_helper'
 describe PagerDuty::API::Incidents do
   describe "find" do
     it "returns incidents with incident numbers" do
-      pagerduty = pagerduty_connection
       result = pagerduty.incidents.find(
         :since => "2011-07-28",
         :until => "2011-07-29"
