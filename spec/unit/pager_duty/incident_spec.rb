@@ -13,7 +13,8 @@ describe PagerDuty::Incident do
      ].each do |attribute|
       it "gets #{attribute} from the top-level of the init hash" do
         value = rand(10000).to_s
-        described_class.new({"#{attribute}" => value}).send(attribute).should == value
+        incident = described_class.new({"#{attribute}" => value})
+        incident.send(attribute).should == value
       end
     end
   end

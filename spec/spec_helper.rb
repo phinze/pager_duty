@@ -2,14 +2,14 @@ require 'pager_duty'
 
 Bundler.require(:test)
 
-require 'yml'
+require 'yaml'
 
-PAGERDUTY_CREDENTIALS = YML.load("pagerduty_credentials.yml")
+PAGERDUTY_CREDENTIALS = YAML.load_file("spec/pagerduty_credentials.yml")
 
 def pagerduty_connection
   PagerDuty::API.connect(
     :subdomain => 'braintree',
-    :user => PAGERDUTY_CREDENTIALS[:username]
+    :user => PAGERDUTY_CREDENTIALS[:username],
     :password => PAGERDUTY_CREDENTIALS[:password]
   )
 end

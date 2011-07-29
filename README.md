@@ -3,7 +3,7 @@
 ```ruby
 pagerduty = PagerDuty::API.connect :user => 'wake.me.up@example.com', :password => 'only_basic_auth'
 
-incidents = pagerduty.incidents.find :since => '2011-05-08', :until => '2011-05-08'
+incidents = pagerduty.incidents.find :since => '2011-05-08', :until => '2011-05-09'
 
 incidents.each do |incident|
   puts "#{incident.number}: #{incident.status}"
